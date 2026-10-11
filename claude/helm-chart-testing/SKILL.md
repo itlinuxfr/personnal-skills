@@ -94,7 +94,8 @@ Never modify a test for the sole purpose of making it pass.
 ## 7. Wrap up
 
 - Tests do not change the rendered output: class A, patch version (REL-01).
-- A line in `CHANGELOG.md`, in the unreleased section.
+- An entry in `CHANGELOG.md` under `[Unreleased]`, in the Keep a Changelog format
+  (REL-02).
 - On the approved working branch: one commit `<chart>: tests <what is covered>`.
 - Summarise: what is covered, what is not and why, chart defects revealed by the
   tests.

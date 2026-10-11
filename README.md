@@ -1,6 +1,6 @@
 # helm-skills
 
-Four skills for AI coding assistants to audit, fix, create and test Helm charts
+Five skills for AI coding assistants to audit, fix, create and test Helm charts
 the same way everywhere, against a written standard. Designed for charts deployed
 by Argo CD on OpenShift: operator resources (CRDs) as well as application charts.
 
@@ -10,6 +10,7 @@ by Argo CD on OpenShift: operator resources (CRDs) as well as application charts
 | `helm-chart-maintenance` | Fix an existing chart, one finding per commit | Yes |
 | `helm-chart-development` | Create a chart that is compliant from version 0.1.0 | Creates the chart |
 | `helm-chart-testing` | Write and repair `helm unittest` tests | `tests/` only |
+| `helm-chart-docs` | Generate or update the README with `helm-docs`, keeping the chart's own layout | README, its template, values comments |
 
 ## Principles
 
@@ -61,7 +62,7 @@ other. `claude/` is the source: `github-copilot/` is regenerated with
 
 - The chart is in a git repository.
 - `helm`, `git`, `yq` and a bash shell.
-- The `helm unittest` plugin for tests.
+- The `helm unittest` plugin for tests, `helm-docs` for documentation.
 - Optional, used when installed: `dyff`, `pluto`, `kubeconform`, `trivy`,
   `kubescape`, `polaris`, `oc`.
 
@@ -92,7 +93,8 @@ claude/  and  github-copilot/
 ├── helm-chart-review/
 ├── helm-chart-maintenance/
 ├── helm-chart-development/
-└── helm-chart-testing/
+├── helm-chart-testing/
+└── helm-chart-docs/
 ```
 
 To change a rule, edit the standard without renumbering the others. To change a
@@ -114,7 +116,7 @@ The Copilot variant is untested.
 
 ## Origin
 
-The split into four skills, the analysis tools, the pod rules and several
+The split into skills, the analysis tools, the pod rules and several
 templates are adapted from
 [foxj77/claude-code-skills](https://github.com/foxj77/claude-code-skills) (MIT
 license). The files concerned say so in an "Origin" section.

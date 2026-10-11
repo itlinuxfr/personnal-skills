@@ -1,0 +1,42 @@
+# {{ template "chart.name" . }}
+
+{{ template "chart.versionBadge" . }}{{ template "chart.typeBadge" . }}{{ template "chart.appVersionBadge" . }}
+
+{{ template "chart.description" . }}
+
+<!-- Two or three sentences: what the chart configures, for whom, and what happens
+on the cluster once it is synced. -->
+
+## Prerequisites
+
+| Component | Version | Note |
+|---|---|---|
+| <operator> | <x.y> | CRD `<group>/<version>` `<Kind>` provided by the operator |
+
+{{ template "chart.kubeVersionLine" . }}
+
+## Resources produced
+
+| apiVersion / kind | Scope | Name | Enabled by |
+|---|---|---|---|
+
+## Values
+
+| Key | Type | Default | Description |
+|-----|------|---------|-------------|
+{{- range .Values }}
+| `{{ .Key }}` | {{ .Type }} | {{ if .Default }}{{ .Default }}{{ else }}{{ .AutoDefault }}{{ end }} | {{ if .Description }}{{ .Description }}{{ else }}{{ .AutoDescription }}{{ end }} |
+{{- end }}
+
+## Example
+
+<!-- A realistic values file, and the Argo CD Application that carries it. -->
+
+## Accepted deviations
+
+| Rule | What is done | Reason |
+|---|---|---|
+
+## Good to know
+
+<!-- Immutable fields, effect of a deletion, operator-related pitfalls. -->

@@ -99,6 +99,9 @@ templates in `references/templates.md`.
   UID) and WKL-08 (selector labels).
 - **Tests**: one `helm unittest` suite per template, following the
   `helm-chart-testing` skill.
+- **Generated README**: if `helm-docs` is available, turn the approved README into
+  a `README.md.gotmpl` following the `helm-chart-docs` skill, so the values table
+  is generated from the comments.
 
 ## 7. Verify
 
@@ -124,7 +127,9 @@ afterwards finds nothing.
 
 ## 9. Wrap up
 
-- `CHANGELOG.md`: `## 0.1.0 — <date>` then `- Initial release.`
+- `CHANGELOG.md` in the Keep a Changelog format (REL-02): an empty
+  `## [Unreleased]`, then `## [0.1.0] - <date>` with `### Added` and
+  `- Initial release.`
 - On the approved working branch: one commit `<chart>: initial release 0.1.0`.
 - Summarise: resources produced, values keys exposed, points not verified, and
   what remains to be done on the Argo CD side (Application, values files).

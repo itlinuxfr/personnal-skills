@@ -47,8 +47,10 @@ For each finding:
    (class A) or the lines that change and in which resources (class B).
 2. **Modify**, for this finding only. Another problem noticed along the way is
    noted for the end, not fixed on the spot.
-3. **Add the line** to `CHANGELOG.md`, in the unreleased section, in the format
-   the chart already uses; failing that: `- <ID>: <what changes>` (REL-02).
+3. **Add the entry** to `CHANGELOG.md` under `[Unreleased]`, written for whoever
+   deploys the chart and without rule ID (REL-02, format in
+   [references/changes.md](references/changes.md)). No entry for a change users
+   cannot notice.
 4. **Verify**, for each scenario: render diff against `HEAD` and identity check
    (commands in `method.md`), then `helm lint --strict <chart>` and
    `helm unittest <chart>` if `tests/` exists.
@@ -75,6 +77,11 @@ See [references/changes.md](references/changes.md) before:
 - renaming, moving or removing a values key (class C);
 - updating a dependency.
 
+Documentation findings (STR-06, VAL-03) are fixed with the `helm-chart-docs`
+skill: invoke it, or if it cannot be invoked from here, read its `SKILL.md` in
+the sibling `helm-chart-docs` directory and follow it. Its commit counts as the
+fix for those rules.
+
 ## 6. Wrap up
 
 - Run the render diff again against the branch base: that is the cumulative
@@ -83,7 +90,7 @@ See [references/changes.md](references/changes.md) before:
   cumulative diff per scenario, scenarios not covered, remaining findings, pending
   class C decisions, problems noted along the way.
 - Suggest the version bump according to REL-01, without applying it. If it is
-  requested: a separate commit, where the unreleased section of the changelog
-  becomes `## <version> — <date>`; the expected diff is limited to the
+  requested: a separate commit, where the `[Unreleased]` section of the changelog
+  becomes `## [<version>] - <date>`; the expected diff is limited to the
   `helm.sh/chart` label.
 - No push and no pull request without a request.

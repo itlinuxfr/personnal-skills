@@ -8,7 +8,7 @@ file and a sync script.
 
 | Path | Content |
 |---|---|
-| `claude/` | **Source of truth.** The four skills and `_shared/` |
+| `claude/` | **Source of truth.** The skills and `_shared/` |
 | `claude/_shared/references/standard.md` | Numbered rules (STR, VAL, TPL, CRD, REL) |
 | `claude/_shared/references/standard-pods.md` | WKL rules, for charts that render pods |
 | `claude/_shared/references/method.md` | Standing rules, language, git, scenarios, render diff |

@@ -74,23 +74,40 @@ helm dependency update <chart>
 
 ## Maintaining the changelog (REL-02)
 
-Follow the format already in place in the chart. Failing that:
+The format is [Keep a Changelog](https://keepachangelog.com):
 
 ```markdown
 # Changelog
 
-## Unreleased
+## [Unreleased]
 
-- TPL-06: IPs passed through `quote`.
+### Fixed
+- Egress IPs are now quoted, so an address is never read as a number.
 
-## 1.1.0 — 2026-10-11
+## [1.1.0] - 2026-10-11
 
-- CRD-07: `Prune=false` annotation on EgressIPs.
-- **Breaking** — VAL-01: `image.name` removed, use `image.repository`.
+### Added
+- EgressIPs are no longer deleted when a zone is removed from the values
+  (`Prune=false`); delete them manually.
+
+### Removed
+- **Breaking:** `image.name` is removed, use `image.repository`.
 ```
 
-One line per change, with the rule ID first when there is one. A change that
-breaks existing values starts with `**Breaking**` and says how to migrate.
+- Write for whoever deploys the chart: what changes for them and what they must
+  do. No rule ID: it goes in the commit message.
+- Sections, in this order when present: `Added`, `Changed`, `Deprecated`,
+  `Removed`, `Fixed`, `Security`.
+- A change with no effect on the rendered output (class A) gets an entry only if
+  it matters to a user: documentation, schema, tests are worth a line; an
+  internal helper refactoring is not.
+- A change that breaks existing values starts with `**Breaking:**` and says how
+  to migrate.
+- Dates are `YYYY-MM-DD`. Releasing a version renames `[Unreleased]` and opens a
+  new empty one.
+
+A chart whose changelog uses another format is an REL-02 finding: converting it
+is a class A fix of its own, not something to do while fixing another rule.
 
 ## Origin
 

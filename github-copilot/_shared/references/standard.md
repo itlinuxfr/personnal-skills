@@ -81,5 +81,5 @@ Not applicable if the chart only renders core Kubernetes API resources.
 | ID | Rule | Why | Class |
 |---|---|---|---|
 | REL-01 | Identical output → patch. Rendered content changed or new key → minor. Values contract or identity changed → major. | The version announces the risk. | — |
-| REL-02 | `CHANGELOG.md`: one line per change, with the rule ID. | Trace of the work done. | A |
+| REL-02 | `CHANGELOG.md` follows [Keep a Changelog](https://keepachangelog.com): an `Unreleased` section, one section per version with its date, entries grouped under `Added`, `Changed`, `Deprecated`, `Removed`, `Fixed`, `Security`. Entries describe the effect for whoever deploys the chart; rule IDs go in commit messages, not in the changelog. | The changelog is read by the chart's users, who do not know this standard. | A |
 | REL-03 | The version bump is the last step, isolated in its own commit. | It changes the `helm.sh/chart` label on every resource and would drown the other diffs. | B |

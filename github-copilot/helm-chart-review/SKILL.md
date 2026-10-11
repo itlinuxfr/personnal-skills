@@ -122,6 +122,7 @@ scenarios, missing tools, sources not found.>
 Sort findings by severity, then by rule.
 
 End with the three fixes offering the best gain for the effort among classes A and
-B, and suggest `helm-chart-maintenance` to apply them. If the user wants to keep
+B, and suggest `helm-chart-maintenance` to apply them (`helm-chart-docs` when the
+findings are about the README or values comments). If the user wants to keep
 the report, offer to put it in a pull request or an issue; do not write a file on
 your own initiative.
