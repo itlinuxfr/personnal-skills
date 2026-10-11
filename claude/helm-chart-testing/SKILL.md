@@ -2,6 +2,7 @@
 name: helm-chart-testing
 description: Writes, extends and repairs the tests of a Helm chart with helm unittest, without a cluster. Use when asked to add tests to a chart, to assess what is covered, to understand why a test fails, or to protect a chart against regressions before or after bringing it into compliance. Also covers `helm test` pods for charts installed with Helm.
 argument-hint: <chart path>
+compatibility: Requires helm with the helm unittest plugin, git and a bash shell. No cluster needed.
 ---
 
 # Chart tests

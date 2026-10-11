@@ -11,6 +11,7 @@ file and a sync script.
 | `claude/` | **Source of truth.** The skills and `_shared/` |
 | `claude/_shared/references/standard.md` | Numbered rules (STR, VAL, TPL, CRD, REL) |
 | `claude/_shared/references/standard-pods.md` | WKL rules, for charts that render pods |
+| `claude/_shared/references/pod-security-context.md` | Security context reference, Kubernetes and OpenShift |
 | `claude/_shared/references/method.md` | Standing rules, language, git, scenarios, render diff |
 | `github-copilot/` | Generated copy, do not edit by hand |
 | `scripts/sync-copilot.sh` | Regenerates `github-copilot/` from `claude/` |
@@ -43,6 +44,9 @@ Constraints common to Claude Code and GitHub Copilot:
 - `description`: what the skill does and when to use it, main use case first,
   1,024 characters at most — it is the only text read to decide whether the skill
   triggers;
+- `compatibility`: the tools the skill requires and the optional ones, in one or
+  two sentences (500 characters at most); keep it in step with the requirements
+  table of `README.md`;
 - `SKILL.md` under 500 lines; detail goes into `references/`, linked from
   `SKILL.md` (a file that is not linked is never read);
 - a reference to `_shared/` is written

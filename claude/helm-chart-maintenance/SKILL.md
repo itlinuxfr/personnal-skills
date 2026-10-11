@@ -2,6 +2,7 @@
 name: helm-chart-maintenance
 description: Modifies an existing Helm chart without breaking what is deployed, one change per commit, with a render diff at every step. Use when asked to fix, refactor, clean up or bring a chart into compliance, to apply the findings of a review, to bump its version, to deprecate or rename a values key, to update a dependency or to maintain its changelog. Not for creating a chart.
 argument-hint: <chart path> [rules to fix, e.g. TPL-06 VAL-05]
+compatibility: Requires helm, git, yq and a bash shell; the chart must be in a git repository. Optional: dyff for a YAML-aware diff, the helm unittest plugin.
 ---
 
 # Chart maintenance

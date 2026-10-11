@@ -60,11 +60,23 @@ other. `claude/` is the source: `github-copilot/` is regenerated with
 
 ## Requirements
 
-- The chart is in a git repository.
-- `helm`, `git`, `yq` and a bash shell.
-- The `helm unittest` plugin for tests, `helm-docs` for documentation.
-- Optional, used when installed: `dyff`, `pluto`, `kubeconform`, `trivy`,
-  `kubescape`, `polaris`, `oc`.
+No skill installs anything: when a required tool is missing, the skill says so
+and stops; an optional one is simply skipped and reported. The same list is in
+the `compatibility` field of each `SKILL.md`.
+
+| Tool | Needed by | Required? |
+|---|---|---|
+| [`helm`](https://helm.sh/docs/intro/install/) | All skills | Yes |
+| `git`, and the chart in a git repository | `maintenance`, `development`, `testing`, `docs` | Yes |
+| bash | All skills | Yes |
+| [`yq`](https://github.com/mikefarah/yq) | `maintenance` (resource identity check) | Yes |
+| [`helm unittest`](https://github.com/helm-unittest/helm-unittest) plugin | `testing` | Yes |
+| | `review`, `maintenance`, `development` | Used when installed |
+| [`helm-docs`](https://github.com/norwoodj/helm-docs) | `docs` | Yes |
+| | `development` | Used when installed |
+| [`dyff`](https://github.com/homeport/dyff) | `maintenance` (YAML-aware diff, falls back to `diff`) | Optional |
+| `pluto`, `kubeconform`, `trivy`, `kubescape`, `polaris` | `review` | Optional |
+| `oc` or `kubectl`, with access to a cluster | `review`, `development` (CRD schemas) | Optional |
 
 ## Usage
 
@@ -89,6 +101,7 @@ claude/  and  github-copilot/
 ├── _shared/references/
 │   ├── standard.md          rules STR, VAL, TPL, CRD, REL
 │   ├── standard-pods.md     rules WKL, for charts that render pods
+│   ├── pod-security-context.md   security contexts, Kubernetes and OpenShift
 │   └── method.md            standing rules, language, git, scenarios, render diff
 ├── helm-chart-review/
 ├── helm-chart-maintenance/

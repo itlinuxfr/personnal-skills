@@ -146,7 +146,8 @@ spec:
 ```
 
 `podSecurityContext` defaults to `{}`: neither `runAsUser` nor `fsGroup` is set,
-OpenShift assigns them (WKL-02).
+OpenShift assigns them (WKL-02). The full reference, including how to grant an
+SCC from the chart, is `pod-security-context.md` in the shared references.
 
 ## README.md
 

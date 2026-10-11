@@ -2,6 +2,7 @@
 name: helm-chart-docs
 description: Generates or updates the README of a Helm chart with helm-docs, keeping the chart's existing layout, wording and language. Use when asked to document a chart, to write, regenerate or update its README or its values table, to set up helm-docs on a chart, or to fix the documentation findings of a review (README content, undocumented values, accepted deviations).
 argument-hint: <chart path>
+compatibility: Requires helm-docs, helm, git and a bash shell.
 ---
 
 # Chart documentation

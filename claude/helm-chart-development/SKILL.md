@@ -2,6 +2,7 @@
 name: helm-chart-development
 description: Creates a new Helm chart that complies with the chart standard from version 0.1.0. Use when asked to create, initialise, generate or scaffold a chart, to package an operator resource (CRD) or an application as a chart, or to write its helpers, values.yaml or values.schema.json from scratch. Not for modifying an existing chart.
 argument-hint: <chart name> <what it must deploy>
+compatibility: Requires helm, git and a bash shell. Optional: the helm unittest plugin, helm-docs, and oc or kubectl with access to a cluster to read CRD schemas.
 ---
 
 # Chart creation

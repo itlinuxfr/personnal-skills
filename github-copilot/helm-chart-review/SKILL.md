@@ -2,6 +2,7 @@
 name: helm-chart-review
 description: Audits a Helm chart without modifying it and returns a report of findings against the chart standard. Use when asked to audit, review, analyse, assess or understand a chart, to run a quality or security review, or to list what must be fixed before bringing a chart into compliance. Works for charts of operator resources (CRDs) deployed by Argo CD as well as application charts.
 argument-hint: <chart path> [values files]
+compatibility: Requires helm and a bash shell. Optional, used when installed: the helm unittest plugin, pluto, kubeconform, trivy, kubescape, polaris, and oc or kubectl with access to a cluster.
 ---
 
 # Chart review
