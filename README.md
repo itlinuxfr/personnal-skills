@@ -1,4 +1,4 @@
-# helm-skills
+# Helm Skills Collection
 
 Five skills for AI coding assistants to audit, fix, create and test Helm charts
 the same way everywhere, against a written standard. Designed for charts deployed
